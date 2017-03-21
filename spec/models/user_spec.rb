@@ -37,5 +37,20 @@ RSpec.describe User, type: :model do
       user2.valid?
       expect(user2.errors.full_messages).to eq(['Email has already been taken'])
     end
+    it 'should not be valid without an email' do
+      user.email = nil
+      user.valid?
+      expect(user.errors.full_messages).to eq(["Email can't be blank"])
+    end
+    it 'should not be valid without a first name' do
+      user.first_name = nil
+      user.valid?
+      expect(user.errors.full_messages).to eq(["First name can't be blank"])
+    end
+    it 'should not be valid without a last name' do
+      user.last_name = nil
+      user.valid?
+      expect(user.errors.full_messages).to eq(["Last name can't be blank"])
+    end
   end
 end
