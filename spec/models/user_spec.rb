@@ -80,5 +80,11 @@ RSpec.describe User, type: :model do
     it 'should reject login for an incorrect password' do
       expect(User.authenticate_with_credentials('millenium@falcon.net', '34$ych3w1e')).to be_nil
     end
+    it 'should allow login when there are spaces at the beginning or end of the email' do
+      expect(User.authenticate_with_credentials('   millenium@falcon.net    ', 'easychewie')).to be_truthy
+    end
+    it 'should allow login no matter the case of the input e-mail' do
+      expect(User.authenticate_with_credentials('MiLlEnIuM@FaLcOn.NeT', 'easychewie')).to be_truthy
+    end
   end
 end
