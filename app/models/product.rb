@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
   mount_uploader :image, ProductImageUploader
 
   belongs_to :category
+  has_many :reviews
   has_many :line_items
   has_many :orders, though: :line_items
 
