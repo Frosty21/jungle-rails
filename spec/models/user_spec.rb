@@ -61,4 +61,24 @@ RSpec.describe User, type: :model do
       )
     end
   end
+  describe '.authenticate_with_credentials' do
+    before do
+      User.create!(
+        first_name: 'Han',
+        last_name: 'Solo',
+        email: 'millenium@falcon.net',
+        password: 'easychewie',
+        password_confirmation: 'easychewie'
+      )
+    end
+    it 'should log in a user who enters valid credentials' do
+      expect(User.authenticate_with_credentials('millenium@falcon.net', 'easychewie')).to be_truthy
+    end
+    it 'should reject login for a nonexistant e-mail' do
+      expect(User.authenticate_with_credentials('tiefighter@empire.net', 'easychewie')).to be_nil
+    end
+    it 'should reject login for an incorrect password' do
+      expect(User.authenticate_with_credentials('millenium@falcon.net', '34$ych3w1e')).to be_nil
+    end
+  end
 end
