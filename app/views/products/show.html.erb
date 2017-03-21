@@ -38,6 +38,15 @@
       <p> Rating: <%= review.rating %>/5</p>
       <p> Reviewed by <%= User.find(review.user_id).first_name %><%= User.find(review.user_id).last_name %></p>
       <p><%= review.description %></p>
+      <% if current_user.id == review.user_id %>
+      <p>
+      <%= link_to fa_icon('trash'),
+      [review.product, review],
+      class: 'btn btn-sm btn-danger',
+      method: :delete,
+      data: { confirm: 'Are you sure?' } %>
+      </p>
+      <% end %>
     </div>
     <% end %>
   </article>
