@@ -52,5 +52,13 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors.full_messages).to eq(["Last name can't be blank"])
     end
+    it 'should have a password over 6 characters' do
+      user.password = 'iknow'
+      user.password_confirmation = 'iknow'
+      user.valid?
+      expect(user.errors.full_messages).to eq(
+        ['Password is too short (minimum is 6 characters)']
+      )
+    end
   end
 end
