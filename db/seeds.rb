@@ -14,10 +14,10 @@ def open_asset(file_name)
 end
 
 # Only run on development (local) instances not on production, etc.
-unless Rails.env.development?
-  puts "Development seeds only (for now)!"
-  exit 0
-end
+# unless Rails.env.development?
+#   puts "Development seeds only (for now)!"
+#   exit 0
+# end
 
 # Let's do this ...
 
@@ -144,42 +144,45 @@ User.create(
   first_name: 'Luke',
   last_name: 'Skywalker',
   email: 'lskywalker@jedi.net',
-  password_digest: BCrypt::Password.create('usetheforce')
+  password_digest:  password: ENV['USER1_PASS'],
+  password_confirmation: ENV['USER1_PASS']
 )
 
 User.create(
   first_name: 'Leia',
   last_name: 'Organa',
   email: 'leia@rebellion.net',
-  password_digest: BCrypt::Password.create('urmyonlyhope')
+  password_digest: ENV['USER2_PASS'],
+  password_confirmation: ENV['USER2_PASS']
 )
 
 User.create(
   first_name: 'Darth',
   last_name: 'Vader',
   email: 'vader@empire.net',
-  password_digest: BCrypt::Password.create('theforceisstrong')
+  password_digest: ENV['USER3_PASS'],
+  password_confirmation: ENV['USER3_PASS']
 )
 
-# Users
+# Reviews
 
 puts 'Re-creating reviews ...'
 
-Review.create(
+Review.create!(
   product_id: 12,
   user_id: 1,
   description: 'Holds all my Power Converter manuals. Wish it came in blue',
   rating: 4
 )
 
-Review.create(
+Review.create!(
   product_id: 12,
   user_id: 2,
   description: 'This bookcase will spread peace throughout the galaxy.',
   rating: 5
 )
 
-Review.create(
+Review.create!(
   product_id: 12,
   user_id: 3,
   description: 'I find the lack of shelves disturbing.',
