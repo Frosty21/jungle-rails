@@ -22,5 +22,6 @@ RSpec.feature 'Visitor views a product page from home', type: :feature, js: true
     first('.btn.btn-default.pull-right').click
     # DEBUG / VERIFY
     expect(page).to have_css 'article.product-detail', count: 1
+    save_screenshot
   end
 end

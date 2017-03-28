@@ -33,7 +33,7 @@
     <div class="panel-heading">
       <h3>Product Reviews</h3>
     </div>
-    <% @product.reviews.reverse.each do |reviews| %>
+    <% @product.reviews.reverse.each do |review| %>
     <div class="product-review panel-body">
       <p> Rating: <%= review.rating %>/5</p>
       <p> Reviewed by <%= User.find(review.user_id).first_name %><%= User.find(review.user_id).last_name %></p>

@@ -2,12 +2,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
-
 // App
 @import "products";
 @import "categories";
 @import "orders";
-
 // Global
 body {
   padding-top: 70px;
