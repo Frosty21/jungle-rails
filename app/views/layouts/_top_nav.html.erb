@@ -28,7 +28,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <li><a href="#">Howdy, <%= current_user.first_name %>!</a></li>
+          <li><a href="#">G'day, <%= current_user.first_name %>!</a></li>
           <li><%= link_to 'Logout', '/logout' %></li>
         <% else %>
           <li><%= link_to 'Register', '/register' %></li>
