@@ -8,6 +8,5 @@ class Review < ActiveRecord::Base
   validates :rating, presence: true,
     numerically:{ only_integer: true,
     greater_than_or_equal_to: 1, 
-    less_than_or_equal_to: 5}
-    
+    less_than_or_equal_to: 5} 
 end
