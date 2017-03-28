@@ -48,8 +48,14 @@ end
   end
 
   def create_order(stripe_charge)
+    if current_user
+      email = current_user.email
+    else
+      email = "no email"
+    end
+    
     order = Order.new(
-      email: user?,
+      email: email,
       total_cents: cart_total,
       stripe_charge_id: stripe_charge.id, # returned by stripe
     )

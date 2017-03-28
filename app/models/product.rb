@@ -11,12 +11,16 @@ class Product < ActiveRecord::Base
   validates :quantity, presence: true
   validates :category, presence: true
 
-  def avaerage_rating
+  def average_rating
     if reviews.size.zero?
       "Not rated yet"
     else
       "Overall rating: #{(reviews.map { |review| review[:rating].to_f }.sum / reviews.size).round(1)}/5"
     end
+  end
+  
+  def sold_out?
+    self.quantity < 1
   end
 
 end

@@ -140,28 +140,28 @@ puts "Re-creating users ..."
 
 User.destroy_all
 
-User.create(
-  first_name: 'Luke',
-  last_name: 'Skywalker',
-  email: 'lskywalker@jedi.net',
-  password_digest:  password: ENV['USER1_PASS'],
-  password_confirmation: ENV['USER1_PASS']
+User.create!(
+  first_name: 'Nathan',
+  last_name: 'Froese',
+  email: 'nathan_froese21@gmail.com',
+  password: 'testing',
+  password_confirmation: 'testing'
 )
 
-User.create(
-  first_name: 'Leia',
-  last_name: 'Organa',
-  email: 'leia@rebellion.net',
-  password_digest: ENV['USER2_PASS'],
-  password_confirmation: ENV['USER2_PASS']
+User.create!(
+  first_name: 'test',
+  last_name: 'test',
+  email: 'test@test.com',
+  password: 'password',
+  password_confirmation: 'password'
 )
 
-User.create(
-  first_name: 'Darth',
-  last_name: 'Vader',
-  email: 'vader@empire.net',
-  password_digest: ENV['USER3_PASS'],
-  password_confirmation: ENV['USER3_PASS']
+User.create!(
+  first_name: 'test2',
+  last_name: 'test2',
+  email: 'test2@test.com',
+  password: 'password',
+  password_confirmation: 'password'
 )
 
 # Reviews
@@ -184,7 +184,7 @@ Review.create!(
 
 Review.create!(
   product_id: 12,
-  user_id: 3,
+  user_id: 2,
   description: 'I find the lack of shelves disturbing.',
   rating: 1
 )

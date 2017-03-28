@@ -5,6 +5,6 @@
     <br>
     <p><%= Product.find(line_item.product_id)[:description] %></p>
   </td>
-  <td><% line_item.quantity %></td>
-  <td><% line_item.total_price %></td>
+  <td><%= line_item.quantity %></td>
+  <td><%= line_item.total_price %></td>
 </tr>
