@@ -22,6 +22,18 @@
             <%= @order.email %>
         </li>
     </ul>
+    <table>
+      <thead>
+        <th></th>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Item Total</th>
+      </thead>
+      <tbody>
+      <%= render @order.line_items %>
+      </tbody>
+    </table>
+    <h4>Order total: <%= @order.order_total %> </h4>
 </body>
 
 </html>
